@@ -1,4 +1,16 @@
- 
+package main;
+
+import animal_qualities.Flying;
+import animal_qualities.Swimming;
+import animal_qualities.Walking;
+import animals.*;
+import main.Animal;
+import retail.Concessions;
+import retail.Gift_Shop;
+import types.Bird;
+import types.Equine;
+import types.Primate;
+import types.Reptile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +19,13 @@ import java.util.Random;
 import java.util.Scanner;
 /**
  * Test
- * 
- * @author APCSA2014-15 
+ *
+ * @author APCSA2014-15
  * @version 2015-03-06
  */
 public class Zoo
 {
-    public static  void main(String[] args) throws InterruptedException 
+    public static  void main(String[] args) throws InterruptedException
     {
         List<Animal> animals = new ArrayList<Animal>();
 
@@ -35,25 +47,31 @@ public class Zoo
         {
             switch(text)
             {
-                case "help" : 
-                msg = "So far we can visit cages, listen, leave \n"+
-                "and ask for help.";
+                case "help" :
+                    msg = "So far we can visit cages, listen, leave \n"+
+                            "and ask for help.";
+                    break;
+                case "visit cages" :
+                    msg = visitCages(animals);
+                    break;
+                case "look up" :
+                msg = lookUp(animals);
                 break;
-                case "visit cages" : 
-                msg = visitCages(animals);
-                break;
-//                case "look up" :
-//                msg = lookUp(animals);
-//                break;
                 case "look around" :
-                msg = lookAround(animals);
-                break;
+                    msg = lookAround(animals);
+                    break;
                 case "listen" :
-                msg = listen(animals);
+                    msg = listen(animals);
+                    break;
+                case "look down":
+                msg = lookDown(animals);
                 break;
-//                case "look down":
-//                msg = lookDown(animals);
-//                break;
+                case "concessions":
+                    Concessions.concessions();
+                    break;
+                case "gift shop":
+                    Gift_Shop.gift_shop();
+                    break;
                 default : msg = "You flail helplessly with indecision.";
             }
             System.out.println("\n" + msg);
@@ -81,28 +99,29 @@ public class Zoo
         String msg = "";
         for(Animal a : animals)
         {
-            msg += a.getName() + ": \n       " 
-            + a.makeNoise() + "\n";
+            msg += a.getName() + ": \n       "
+                    + a.makeNoise() + "\n";
         }
         return msg;
     }
 
-//    public static String lookDown(List<Animal> animals)
-//    {
-//        String msg = "";
-//
-//        for(Animal a : animals)
-//        {
-//            if(a instanceof Swimming)
-//            {
-//                Swimming f = (Swimming) a;
-//                msg += a.getName() + ": \n       "
-//                + f.swim() + "\n";
-//            }
-//        }
-//        return msg;
-//
-//    }
+
+    public static String lookDown(List<Animal> animals)
+    {
+        String msg = "";
+
+        for(Animal a : animals)
+        {
+            if(a instanceof Swimming)
+            {
+                Swimming f = (Swimming) a;
+                msg += a.getName() + ": \n       "
+                + f.swim() + "\n";
+            }
+        }
+        return msg;
+
+    }
 
     public static String lookAround(List<Animal> animals)
     {
@@ -110,39 +129,39 @@ public class Zoo
 
         for(Animal a : animals)
         {
-            if(a instanceof Walking) 
+            if(a instanceof Walking)
             {
                 Walking w = (Walking) a;
-                msg += a.getName() + ": \n       " 
-                + w.walk() + "\n";
+                msg += a.getName() + ": \n       "
+                        + w.walk() + "\n";
             }
         }
         return msg;
 
     }
 
-//    public static String lookUp(List<Animal> animals)
-//    {
-//        String msg = "";
-//
-//        for(Animal a : animals)
-//        {
-//            if(a instanceof Flying)
-//            {
-//                Flying f = (Flying) a;
-//                msg += a.getName() + ": \n       "
-//                + f.fly() + "\n";
-//            }
-//        }
-//        return msg;
-//
-//    }
+    public static String lookUp(List<Animal> animals)
+    {
+        String msg = "";
+
+        for(Animal a : animals)
+        {
+            if(a instanceof Flying)
+            {
+                Flying f = (Flying) a;
+                msg += a.getName() + ": \n       "
+                + f.fly() + "\n";
+            }
+        }
+        return msg;
+
+    }
 
     /**
      * This prints an ellipses with 1 second between each period
      * It then moves to the next line.
      */
-    public static void delayDots(int dotAmount) throws InterruptedException 
+    public static void delayDots(int dotAmount) throws InterruptedException
     {
         for (int i=0; i<dotAmount; i++) {
             TimeUnit.SECONDS.sleep(1);
@@ -155,7 +174,7 @@ public class Zoo
      * This prints an ellipses with 1 second between each period
      * It then moves to the next line.
      */
-    public static void delayDots() throws InterruptedException 
+    public static void delayDots() throws InterruptedException
     {
         delayDots(0);
     }
@@ -170,8 +189,24 @@ public class Zoo
 
         Primate hairy = new Primate();
         animals.add(hairy);
-        Chimpanzee george = new Chimpanzee();
-        animals.add(george);
-
+        Chimpanzee Charlie = new Chimpanzee();
+        animals.add(Charlie);
+        Orangutan Ozzy = new Orangutan();
+        animals.add(Ozzy);
+        Ring_Tailed_Lemur Ron = new Ring_Tailed_Lemur();
+        animals.add(Ron);
+        Bird feathery = new Bird();
+        animals.add(feathery);
+        Parrot Pauly = new Parrot();
+        animals.add(Pauly);
+        Reptile scaly = new Reptile();
+        animals.add(scaly);
+        Alligator Allie = new Alligator();
+        animals.add(Allie);
+        Equine horse = new Equine();
+        animals.add(horse);
+        Zebra Roxxy = new Zebra();
+        animals.add(Roxxy);
     }
+
 }

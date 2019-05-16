@@ -1,8 +1,8 @@
- 
-
+package animals;
+import types.Primate;
 
 /**
- * Write a description of class Chimpanzee here.
+ * Write a description of class animals.Chimpanzee here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -13,7 +13,7 @@ public class Chimpanzee extends Primate
     private String age;
 
     /**
-     * Constructor for objects of class Orangutan
+     * Constructor for objects of class animals.Orangutan
      */
     public Chimpanzee()
     {
@@ -30,6 +30,6 @@ public class Chimpanzee extends Primate
         public String makeNoise()
     {
         // put your code here
-        return "screetches and throws feces.";
+        return "screeches and throws feces.";
     }
 }

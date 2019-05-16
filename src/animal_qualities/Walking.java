@@ -1,3 +1,5 @@
+package animal_qualities;
+
 public interface Walking
 {
     //ALL VARIABLES ARE AUTOMATICALLY PUBLIC STATIC FINAL
